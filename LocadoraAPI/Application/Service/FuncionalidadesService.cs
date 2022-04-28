@@ -67,17 +67,17 @@ namespace Application.Service
             return null;
         }
 
-        public Response TopMenosAlugados()
+        public Response MenosAlugados()
         {
             try
             {
-                var response = _funcionalidadesRepository.TopMenosAlugados();
+                var response = _funcionalidadesRepository.MenosAlugados();
                 return response;
 
             }
             catch (Exception ex)
             {
-                _logger.Error(ex, $"[FuncionalidadesService] Exception in TopMenosAlugados!");
+                _logger.Error(ex, $"[FuncionalidadesService] Exception in MenosAlugados!");
             }
             return null;
         }

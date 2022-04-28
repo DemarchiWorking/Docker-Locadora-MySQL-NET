@@ -105,7 +105,7 @@ namespace TargetInvestimento.Controllers
               });
         }
 
-        [HttpGet("top")]
+        [HttpGet("top-alugados")]
         [ProducesResponseType(typeof(Response), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(Response), StatusCodes.Status400BadRequest)]
         [ProducesResponseType(typeof(Response), StatusCodes.Status500InternalServerError)]
@@ -152,7 +152,7 @@ namespace TargetInvestimento.Controllers
         {
             try
             {
-                var response = _funcionalidadesService.TopMenosAlugados();
+                var response = _funcionalidadesService.MenosAlugados();
 
                 if (response.isSuccess == true)
                 {

@@ -221,21 +221,20 @@ namespace Infrastructure.Repository
             return null;
         }
 
-        public Response TopMenosAlugados()
+        public Response MenosAlugados()
         {
             try
             {
 
-                string sql = $@"  
-                              select l.ID_FILME, f.ID_FILME as ID_FILME,f.TITULO AS TITULO
-                                    , f.CLASSIFICACAO_INDICATIVA AS CLASSIFICACAO_INDICATIVA,
-                                    f.LANCAMENTO AS LANCAMENTO , count(*) from LOCACOES l
-                                    INNER JOIN FILMES f 
-                                    ON l.ID_FILME  = f.ID_FILME
-                                    WHERE DATA_LOCACAO  BETWEEN NOW() - INTERVAL 7 DAY AND NOW()
-                                    group by l.ID_FILME
-                                    order by count(*) ASC                                  
-                                    limit 5";
+                string sql = $@"
+                                 SELECT F.ID_FILME AS ID_FILME, F.TITULO AS TITULO, F.CLASSIFICACAO_INDICATIVA AS CLASSIFICACAO_INDICATIVA, F.LANCAMENTO AS LANCAMENTO 
+                                , COUNT(L.ID_FILME) AS VENDAS 
+                                FROM FILMES F 
+                                LEFT JOIN LOCACOES L ON F.ID_FILME  = L.ID_FILME  
+                                GROUP BY F.ID_FILME, F.TITULO, F.CLASSIFICACAO_INDICATIVA, F.LANCAMENTO 
+                                ORDER BY VENDAS
+                                LIMIT 3";
+
 
                 var result = _connection.Query<dynamic>(sql);
 
@@ -272,7 +271,7 @@ namespace Infrastructure.Repository
             }
             catch (Exception ex)
             {
-                _logger.Error(ex, $"[ClienteRepository] Exception in TopMenosAlugados!");
+                _logger.Error(ex, $"[ClienteRepository] Exception in MenosAlugados!");
             }
 
             return null;

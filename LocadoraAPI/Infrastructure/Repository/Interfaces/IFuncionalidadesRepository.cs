@@ -8,7 +8,7 @@ namespace Infrastructure.Repository.Interfaces
         Response ClientesAtrasados();
         Response FilmesNaoAlugados();
         Response TopFilmesAlugados();
-        Response TopMenosAlugados();
+        Response MenosAlugados();
         Response SegundoTopCliente();
     }
 }
