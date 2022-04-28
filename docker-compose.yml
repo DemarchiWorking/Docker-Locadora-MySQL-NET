@@ -1,0 +1,64 @@
+version: "3.8"
+
+services:
+  mysqldb:
+    build: ./Mysql
+    container_name: mysql-container    
+    environment:    
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: locadora
+    ports:
+      - "3316:3306" 
+  
+  adminer:
+    image: adminer:4
+    container_name: adminer_container
+    restart: always
+    ports: 
+      - 8080:8080
+
+
+  api:
+    build: 
+      context: LocadoraAPI
+      dockerfile: LocadoraAPI/Dockerfile
+    container_name: net-container
+    environment:
+      - "DB_PORT=3316"
+    restart: always
+    ports:
+      - 8088:80
+   
+
+  front:
+    build: ./locadora
+    volumes:
+      - ./volumefront:/var/www/html
+    container_name: react-container    
+    restart: always
+    ports:
+      - 80:3000
+
+    depends_on:
+      - mysqldb
+
+
+
+
+
+
+  #  image: mysql:8.0
+  #  container_name: mysql-container
+  #  restart: always
+  #  environment:    
+  #    MYSQL_USER: root
+  #    MYSQL_ROOT_PASSWORD: root
+  #    MYSQL_DATABASE: locadora
+  #  ports:
+  #    - "3316:3318"
+  #  cap_add:
+  #    - SYS_NICE
+  #  volumes:
+  #    - mysql:/var/lib/mysql
+
+

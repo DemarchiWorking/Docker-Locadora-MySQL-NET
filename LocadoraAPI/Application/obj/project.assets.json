@@ -1,0 +1,324 @@
+{
+  "version": 3,
+  "targets": {
+    "net5.0": {
+      "Dapper/2.0.123": {
+        "type": "package",
+        "compile": {
+          "lib/net5.0/Dapper.dll": {}
+        },
+        "runtime": {
+          "lib/net5.0/Dapper.dll": {}
+        }
+      },
+      "Microsoft.Extensions.Configuration.Abstractions/6.0.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.Primitives": "6.0.0"
+        },
+        "compile": {
+          "lib/netstandard2.0/Microsoft.Extensions.Configuration.Abstractions.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Microsoft.Extensions.Configuration.Abstractions.dll": {}
+        }
+      },
+      "Microsoft.Extensions.Primitives/6.0.0": {
+        "type": "package",
+        "dependencies": {
+          "System.Runtime.CompilerServices.Unsafe": "6.0.0"
+        },
+        "compile": {
+          "lib/netcoreapp3.1/Microsoft.Extensions.Primitives.dll": {}
+        },
+        "runtime": {
+          "lib/netcoreapp3.1/Microsoft.Extensions.Primitives.dll": {}
+        },
+        "build": {
+          "buildTransitive/netcoreapp3.1/_._": {}
+        }
+      },
+      "MySqlConnector/2.1.8": {
+        "type": "package",
+        "compile": {
+          "lib/net5.0/MySqlConnector.dll": {}
+        },
+        "runtime": {
+          "lib/net5.0/MySqlConnector.dll": {}
+        }
+      },
+      "Serilog/2.11.0": {
+        "type": "package",
+        "compile": {
+          "lib/net5.0/Serilog.dll": {}
+        },
+        "runtime": {
+          "lib/net5.0/Serilog.dll": {}
+        }
+      },
+      "System.Runtime.CompilerServices.Unsafe/6.0.0": {
+        "type": "package",
+        "compile": {
+          "lib/netcoreapp3.1/System.Runtime.CompilerServices.Unsafe.dll": {}
+        },
+        "runtime": {
+          "lib/netcoreapp3.1/System.Runtime.CompilerServices.Unsafe.dll": {}
+        },
+        "build": {
+          "buildTransitive/netcoreapp3.1/_._": {}
+        }
+      },
+      "Domain/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v5.0",
+        "compile": {
+          "bin/placeholder/Domain.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Domain.dll": {}
+        }
+      },
+      "Infrastructure/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v5.0",
+        "dependencies": {
+          "Dapper": "2.0.123",
+          "Domain": "1.0.0",
+          "Microsoft.Extensions.Configuration.Abstractions": "6.0.0",
+          "MySqlConnector": "2.1.8",
+          "Serilog": "2.11.0"
+        },
+        "compile": {
+          "bin/placeholder/Infrastructure.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Infrastructure.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Dapper/2.0.123": {
+      "sha512": "RDFF4rBLLmbpi6pwkY7q/M6UXHRJEOerplDGE5jwEkP/JGJnBauAClYavNKJPW1yOTWRPIyfj4is3EaJxQXILQ==",
+      "type": "package",
+      "path": "dapper/2.0.123",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Dapper.png",
+        "dapper.2.0.123.nupkg.sha512",
+        "dapper.nuspec",
+        "lib/net461/Dapper.dll",
+        "lib/net461/Dapper.xml",
+        "lib/net5.0/Dapper.dll",
+        "lib/net5.0/Dapper.xml",
+        "lib/netstandard2.0/Dapper.dll",
+        "lib/netstandard2.0/Dapper.xml"
+      ]
+    },
+    "Microsoft.Extensions.Configuration.Abstractions/6.0.0": {
+      "sha512": "qWzV9o+ZRWq+pGm+1dF+R7qTgTYoXvbyowRoBxQJGfqTpqDun2eteerjRQhq5PQ/14S+lqto3Ft4gYaRyl4rdQ==",
+      "type": "package",
+      "path": "microsoft.extensions.configuration.abstractions/6.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "LICENSE.TXT",
+        "THIRD-PARTY-NOTICES.TXT",
+        "lib/net461/Microsoft.Extensions.Configuration.Abstractions.dll",
+        "lib/net461/Microsoft.Extensions.Configuration.Abstractions.xml",
+        "lib/netstandard2.0/Microsoft.Extensions.Configuration.Abstractions.dll",
+        "lib/netstandard2.0/Microsoft.Extensions.Configuration.Abstractions.xml",
+        "microsoft.extensions.configuration.abstractions.6.0.0.nupkg.sha512",
+        "microsoft.extensions.configuration.abstractions.nuspec",
+        "useSharedDesignerContext.txt"
+      ]
+    },
+    "Microsoft.Extensions.Primitives/6.0.0": {
+      "sha512": "9+PnzmQFfEFNR9J2aDTfJGGupShHjOuGw4VUv+JB044biSHrnmCIMD+mJHmb2H7YryrfBEXDurxQ47gJZdCKNQ==",
+      "type": "package",
+      "path": "microsoft.extensions.primitives/6.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "LICENSE.TXT",
+        "THIRD-PARTY-NOTICES.TXT",
+        "buildTransitive/netcoreapp2.0/Microsoft.Extensions.Primitives.targets",
+        "buildTransitive/netcoreapp3.1/_._",
+        "lib/net461/Microsoft.Extensions.Primitives.dll",
+        "lib/net461/Microsoft.Extensions.Primitives.xml",
+        "lib/net6.0/Microsoft.Extensions.Primitives.dll",
+        "lib/net6.0/Microsoft.Extensions.Primitives.xml",
+        "lib/netcoreapp3.1/Microsoft.Extensions.Primitives.dll",
+        "lib/netcoreapp3.1/Microsoft.Extensions.Primitives.xml",
+        "lib/netstandard2.0/Microsoft.Extensions.Primitives.dll",
+        "lib/netstandard2.0/Microsoft.Extensions.Primitives.xml",
+        "microsoft.extensions.primitives.6.0.0.nupkg.sha512",
+        "microsoft.extensions.primitives.nuspec",
+        "useSharedDesignerContext.txt"
+      ]
+    },
+    "MySqlConnector/2.1.8": {
+      "sha512": "CVJ0w9PbUnBS3lfOII1J15DshAnJgKqkrvKfkTSiUerPjJpSAfv7LJR5aJNnzj+LdFw2grekguVe1kedp6LMyA==",
+      "type": "package",
+      "path": "mysqlconnector/2.1.8",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "README.md",
+        "lib/net45/MySqlConnector.dll",
+        "lib/net45/MySqlConnector.xml",
+        "lib/net461/MySqlConnector.dll",
+        "lib/net461/MySqlConnector.xml",
+        "lib/net471/MySqlConnector.dll",
+        "lib/net471/MySqlConnector.xml",
+        "lib/net5.0/MySqlConnector.dll",
+        "lib/net5.0/MySqlConnector.xml",
+        "lib/net6.0/MySqlConnector.dll",
+        "lib/net6.0/MySqlConnector.xml",
+        "lib/netcoreapp3.1/MySqlConnector.dll",
+        "lib/netcoreapp3.1/MySqlConnector.xml",
+        "lib/netstandard2.0/MySqlConnector.dll",
+        "lib/netstandard2.0/MySqlConnector.xml",
+        "lib/netstandard2.1/MySqlConnector.dll",
+        "lib/netstandard2.1/MySqlConnector.xml",
+        "logo.png",
+        "mysqlconnector.2.1.8.nupkg.sha512",
+        "mysqlconnector.nuspec"
+      ]
+    },
+    "Serilog/2.11.0": {
+      "sha512": "ysv+hBzTul6Dp+Hvm10FlhJO3yMQcFKSAleus+LpiIzvNstpeV4Z7gGuIZ1OPNfIMulSHOjmLuGAEDKzpnV8ZQ==",
+      "type": "package",
+      "path": "serilog/2.11.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "icon.png",
+        "lib/net45/Serilog.dll",
+        "lib/net45/Serilog.xml",
+        "lib/net46/Serilog.dll",
+        "lib/net46/Serilog.xml",
+        "lib/net5.0/Serilog.dll",
+        "lib/net5.0/Serilog.xml",
+        "lib/netstandard1.0/Serilog.dll",
+        "lib/netstandard1.0/Serilog.xml",
+        "lib/netstandard1.3/Serilog.dll",
+        "lib/netstandard1.3/Serilog.xml",
+        "lib/netstandard2.0/Serilog.dll",
+        "lib/netstandard2.0/Serilog.xml",
+        "lib/netstandard2.1/Serilog.dll",
+        "lib/netstandard2.1/Serilog.xml",
+        "serilog.2.11.0.nupkg.sha512",
+        "serilog.nuspec"
+      ]
+    },
+    "System.Runtime.CompilerServices.Unsafe/6.0.0": {
+      "sha512": "/iUeP3tq1S0XdNNoMz5C9twLSrM/TH+qElHkXWaPvuNOt+99G75NrV0OS2EqHx5wMN7popYjpc8oTjC1y16DLg==",
+      "type": "package",
+      "path": "system.runtime.compilerservices.unsafe/6.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "LICENSE.TXT",
+        "THIRD-PARTY-NOTICES.TXT",
+        "buildTransitive/netcoreapp2.0/System.Runtime.CompilerServices.Unsafe.targets",
+        "buildTransitive/netcoreapp3.1/_._",
+        "lib/net461/System.Runtime.CompilerServices.Unsafe.dll",
+        "lib/net461/System.Runtime.CompilerServices.Unsafe.xml",
+        "lib/net6.0/System.Runtime.CompilerServices.Unsafe.dll",
+        "lib/net6.0/System.Runtime.CompilerServices.Unsafe.xml",
+        "lib/netcoreapp3.1/System.Runtime.CompilerServices.Unsafe.dll",
+        "lib/netcoreapp3.1/System.Runtime.CompilerServices.Unsafe.xml",
+        "lib/netstandard2.0/System.Runtime.CompilerServices.Unsafe.dll",
+        "lib/netstandard2.0/System.Runtime.CompilerServices.Unsafe.xml",
+        "system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512",
+        "system.runtime.compilerservices.unsafe.nuspec",
+        "useSharedDesignerContext.txt"
+      ]
+    },
+    "Domain/1.0.0": {
+      "type": "project",
+      "path": "../Domain/Domain.csproj",
+      "msbuildProject": "../Domain/Domain.csproj"
+    },
+    "Infrastructure/1.0.0": {
+      "type": "project",
+      "path": "../Infrastructure/Infrastructure.csproj",
+      "msbuildProject": "../Infrastructure/Infrastructure.csproj"
+    }
+  },
+  "projectFileDependencyGroups": {
+    "net5.0": [
+      "Domain >= 1.0.0",
+      "Infrastructure >= 1.0.0"
+    ]
+  },
+  "packageFolders": {
+    "C:\\Users\\AntonioEduardoSilvei\\.nuget\\packages\\": {}
+  },
+  "project": {
+    "version": "1.0.0",
+    "restore": {
+      "projectUniqueName": "C:\\Users\\AntonioEduardoSilvei\\source\\repos\\Locadora-Docker-Net-ReactJS\\LocadoraAPI\\Application\\Application.csproj",
+      "projectName": "Application",
+      "projectPath": "C:\\Users\\AntonioEduardoSilvei\\source\\repos\\Locadora-Docker-Net-ReactJS\\LocadoraAPI\\Application\\Application.csproj",
+      "packagesPath": "C:\\Users\\AntonioEduardoSilvei\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\AntonioEduardoSilvei\\source\\repos\\Locadora-Docker-Net-ReactJS\\LocadoraAPI\\Application\\obj\\",
+      "projectStyle": "PackageReference",
+      "configFilePaths": [
+        "C:\\Users\\AntonioEduardoSilvei\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+      ],
+      "originalTargetFrameworks": [
+        "net5.0"
+      ],
+      "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "https://api.nuget.org/v3/index.json": {}
+      },
+      "frameworks": {
+        "net5.0": {
+          "targetAlias": "net5.0",
+          "projectReferences": {
+            "C:\\Users\\AntonioEduardoSilvei\\source\\repos\\Locadora-Docker-Net-ReactJS\\LocadoraAPI\\Domain\\Domain.csproj": {
+              "projectPath": "C:\\Users\\AntonioEduardoSilvei\\source\\repos\\Locadora-Docker-Net-ReactJS\\LocadoraAPI\\Domain\\Domain.csproj"
+            },
+            "C:\\Users\\AntonioEduardoSilvei\\source\\repos\\Locadora-Docker-Net-ReactJS\\LocadoraAPI\\Infrastructure\\Infrastructure.csproj": {
+              "projectPath": "C:\\Users\\AntonioEduardoSilvei\\source\\repos\\Locadora-Docker-Net-ReactJS\\LocadoraAPI\\Infrastructure\\Infrastructure.csproj"
+            }
+          }
+        }
+      },
+      "warningProperties": {
+        "warnAsError": [
+          "NU1605"
+        ]
+      }
+    },
+    "frameworks": {
+      "net5.0": {
+        "targetAlias": "net5.0",
+        "imports": [
+          "net461",
+          "net462",
+          "net47",
+          "net471",
+          "net472",
+          "net48"
+        ],
+        "assetTargetFallback": true,
+        "warn": true,
+        "frameworkReferences": {
+          "Microsoft.NETCore.App": {
+            "privateAssets": "all"
+          }
+        },
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.202\\RuntimeIdentifierGraph.json"
+      }
+    }
+  }
+}

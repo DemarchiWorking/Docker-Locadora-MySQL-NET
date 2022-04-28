@@ -1,0 +1,150 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v5.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v5.0": {
+      "Application/1.0.0": {
+        "dependencies": {
+          "Domain": "1.0.0",
+          "Infrastructure": "1.0.0"
+        },
+        "runtime": {
+          "Application.dll": {}
+        }
+      },
+      "Dapper/2.0.123": {
+        "runtime": {
+          "lib/net5.0/Dapper.dll": {
+            "assemblyVersion": "2.0.0.0",
+            "fileVersion": "2.0.123.33578"
+          }
+        }
+      },
+      "Microsoft.Extensions.Configuration.Abstractions/6.0.0": {
+        "dependencies": {
+          "Microsoft.Extensions.Primitives": "6.0.0"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Microsoft.Extensions.Configuration.Abstractions.dll": {
+            "assemblyVersion": "6.0.0.0",
+            "fileVersion": "6.0.21.52210"
+          }
+        }
+      },
+      "Microsoft.Extensions.Primitives/6.0.0": {
+        "dependencies": {
+          "System.Runtime.CompilerServices.Unsafe": "6.0.0"
+        },
+        "runtime": {
+          "lib/netcoreapp3.1/Microsoft.Extensions.Primitives.dll": {
+            "assemblyVersion": "6.0.0.0",
+            "fileVersion": "6.0.21.52210"
+          }
+        }
+      },
+      "MySqlConnector/2.1.8": {
+        "runtime": {
+          "lib/net5.0/MySqlConnector.dll": {
+            "assemblyVersion": "2.0.0.0",
+            "fileVersion": "2.1.8.0"
+          }
+        }
+      },
+      "Serilog/2.11.0": {
+        "runtime": {
+          "lib/net5.0/Serilog.dll": {
+            "assemblyVersion": "2.0.0.0",
+            "fileVersion": "2.11.0.0"
+          }
+        }
+      },
+      "System.Runtime.CompilerServices.Unsafe/6.0.0": {
+        "runtime": {
+          "lib/netcoreapp3.1/System.Runtime.CompilerServices.Unsafe.dll": {
+            "assemblyVersion": "6.0.0.0",
+            "fileVersion": "6.0.21.52210"
+          }
+        }
+      },
+      "Domain/1.0.0": {
+        "runtime": {
+          "Domain.dll": {}
+        }
+      },
+      "Infrastructure/1.0.0": {
+        "dependencies": {
+          "Dapper": "2.0.123",
+          "Domain": "1.0.0",
+          "Microsoft.Extensions.Configuration.Abstractions": "6.0.0",
+          "MySqlConnector": "2.1.8",
+          "Serilog": "2.11.0"
+        },
+        "runtime": {
+          "Infrastructure.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Application/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Dapper/2.0.123": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-RDFF4rBLLmbpi6pwkY7q/M6UXHRJEOerplDGE5jwEkP/JGJnBauAClYavNKJPW1yOTWRPIyfj4is3EaJxQXILQ==",
+      "path": "dapper/2.0.123",
+      "hashPath": "dapper.2.0.123.nupkg.sha512"
+    },
+    "Microsoft.Extensions.Configuration.Abstractions/6.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-qWzV9o+ZRWq+pGm+1dF+R7qTgTYoXvbyowRoBxQJGfqTpqDun2eteerjRQhq5PQ/14S+lqto3Ft4gYaRyl4rdQ==",
+      "path": "microsoft.extensions.configuration.abstractions/6.0.0",
+      "hashPath": "microsoft.extensions.configuration.abstractions.6.0.0.nupkg.sha512"
+    },
+    "Microsoft.Extensions.Primitives/6.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-9+PnzmQFfEFNR9J2aDTfJGGupShHjOuGw4VUv+JB044biSHrnmCIMD+mJHmb2H7YryrfBEXDurxQ47gJZdCKNQ==",
+      "path": "microsoft.extensions.primitives/6.0.0",
+      "hashPath": "microsoft.extensions.primitives.6.0.0.nupkg.sha512"
+    },
+    "MySqlConnector/2.1.8": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-CVJ0w9PbUnBS3lfOII1J15DshAnJgKqkrvKfkTSiUerPjJpSAfv7LJR5aJNnzj+LdFw2grekguVe1kedp6LMyA==",
+      "path": "mysqlconnector/2.1.8",
+      "hashPath": "mysqlconnector.2.1.8.nupkg.sha512"
+    },
+    "Serilog/2.11.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-ysv+hBzTul6Dp+Hvm10FlhJO3yMQcFKSAleus+LpiIzvNstpeV4Z7gGuIZ1OPNfIMulSHOjmLuGAEDKzpnV8ZQ==",
+      "path": "serilog/2.11.0",
+      "hashPath": "serilog.2.11.0.nupkg.sha512"
+    },
+    "System.Runtime.CompilerServices.Unsafe/6.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-/iUeP3tq1S0XdNNoMz5C9twLSrM/TH+qElHkXWaPvuNOt+99G75NrV0OS2EqHx5wMN7popYjpc8oTjC1y16DLg==",
+      "path": "system.runtime.compilerservices.unsafe/6.0.0",
+      "hashPath": "system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512"
+    },
+    "Domain/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Infrastructure/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

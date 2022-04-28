@@ -1,0 +1,292 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Users\\AntonioEduardoSilvei\\source\\repos\\Locadora-Docker-Net-ReactJS\\LocadoraAPI\\LocadoraAPI\\LocadoraAPI.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\AntonioEduardoSilvei\\source\\repos\\Locadora-Docker-Net-ReactJS\\LocadoraAPI\\Application\\Application.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\AntonioEduardoSilvei\\source\\repos\\Locadora-Docker-Net-ReactJS\\LocadoraAPI\\Application\\Application.csproj",
+        "projectName": "Application",
+        "projectPath": "C:\\Users\\AntonioEduardoSilvei\\source\\repos\\Locadora-Docker-Net-ReactJS\\LocadoraAPI\\Application\\Application.csproj",
+        "packagesPath": "C:\\Users\\AntonioEduardoSilvei\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\AntonioEduardoSilvei\\source\\repos\\Locadora-Docker-Net-ReactJS\\LocadoraAPI\\Application\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\AntonioEduardoSilvei\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net5.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net5.0": {
+            "targetAlias": "net5.0",
+            "projectReferences": {
+              "C:\\Users\\AntonioEduardoSilvei\\source\\repos\\Locadora-Docker-Net-ReactJS\\LocadoraAPI\\Domain\\Domain.csproj": {
+                "projectPath": "C:\\Users\\AntonioEduardoSilvei\\source\\repos\\Locadora-Docker-Net-ReactJS\\LocadoraAPI\\Domain\\Domain.csproj"
+              },
+              "C:\\Users\\AntonioEduardoSilvei\\source\\repos\\Locadora-Docker-Net-ReactJS\\LocadoraAPI\\Infrastructure\\Infrastructure.csproj": {
+                "projectPath": "C:\\Users\\AntonioEduardoSilvei\\source\\repos\\Locadora-Docker-Net-ReactJS\\LocadoraAPI\\Infrastructure\\Infrastructure.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net5.0": {
+          "targetAlias": "net5.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.202\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\AntonioEduardoSilvei\\source\\repos\\Locadora-Docker-Net-ReactJS\\LocadoraAPI\\Domain\\Domain.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\AntonioEduardoSilvei\\source\\repos\\Locadora-Docker-Net-ReactJS\\LocadoraAPI\\Domain\\Domain.csproj",
+        "projectName": "Domain",
+        "projectPath": "C:\\Users\\AntonioEduardoSilvei\\source\\repos\\Locadora-Docker-Net-ReactJS\\LocadoraAPI\\Domain\\Domain.csproj",
+        "packagesPath": "C:\\Users\\AntonioEduardoSilvei\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\AntonioEduardoSilvei\\source\\repos\\Locadora-Docker-Net-ReactJS\\LocadoraAPI\\Domain\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\AntonioEduardoSilvei\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net5.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net5.0": {
+            "targetAlias": "net5.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net5.0": {
+          "targetAlias": "net5.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.202\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\AntonioEduardoSilvei\\source\\repos\\Locadora-Docker-Net-ReactJS\\LocadoraAPI\\Infrastructure\\Infrastructure.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\AntonioEduardoSilvei\\source\\repos\\Locadora-Docker-Net-ReactJS\\LocadoraAPI\\Infrastructure\\Infrastructure.csproj",
+        "projectName": "Infrastructure",
+        "projectPath": "C:\\Users\\AntonioEduardoSilvei\\source\\repos\\Locadora-Docker-Net-ReactJS\\LocadoraAPI\\Infrastructure\\Infrastructure.csproj",
+        "packagesPath": "C:\\Users\\AntonioEduardoSilvei\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\AntonioEduardoSilvei\\source\\repos\\Locadora-Docker-Net-ReactJS\\LocadoraAPI\\Infrastructure\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\AntonioEduardoSilvei\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net5.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net5.0": {
+            "targetAlias": "net5.0",
+            "projectReferences": {
+              "C:\\Users\\AntonioEduardoSilvei\\source\\repos\\Locadora-Docker-Net-ReactJS\\LocadoraAPI\\Domain\\Domain.csproj": {
+                "projectPath": "C:\\Users\\AntonioEduardoSilvei\\source\\repos\\Locadora-Docker-Net-ReactJS\\LocadoraAPI\\Domain\\Domain.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net5.0": {
+          "targetAlias": "net5.0",
+          "dependencies": {
+            "Dapper": {
+              "target": "Package",
+              "version": "[2.0.123, )"
+            },
+            "Microsoft.Extensions.Configuration.Abstractions": {
+              "target": "Package",
+              "version": "[6.0.0, )"
+            },
+            "MySqlConnector": {
+              "target": "Package",
+              "version": "[2.1.8, )"
+            },
+            "Serilog": {
+              "target": "Package",
+              "version": "[2.11.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.202\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\AntonioEduardoSilvei\\source\\repos\\Locadora-Docker-Net-ReactJS\\LocadoraAPI\\LocadoraAPI\\LocadoraAPI.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\AntonioEduardoSilvei\\source\\repos\\Locadora-Docker-Net-ReactJS\\LocadoraAPI\\LocadoraAPI\\LocadoraAPI.csproj",
+        "projectName": "LocadoraAPI",
+        "projectPath": "C:\\Users\\AntonioEduardoSilvei\\source\\repos\\Locadora-Docker-Net-ReactJS\\LocadoraAPI\\LocadoraAPI\\LocadoraAPI.csproj",
+        "packagesPath": "C:\\Users\\AntonioEduardoSilvei\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\AntonioEduardoSilvei\\source\\repos\\Locadora-Docker-Net-ReactJS\\LocadoraAPI\\LocadoraAPI\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\AntonioEduardoSilvei\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net5.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net5.0": {
+            "targetAlias": "net5.0",
+            "projectReferences": {
+              "C:\\Users\\AntonioEduardoSilvei\\source\\repos\\Locadora-Docker-Net-ReactJS\\LocadoraAPI\\Application\\Application.csproj": {
+                "projectPath": "C:\\Users\\AntonioEduardoSilvei\\source\\repos\\Locadora-Docker-Net-ReactJS\\LocadoraAPI\\Application\\Application.csproj"
+              },
+              "C:\\Users\\AntonioEduardoSilvei\\source\\repos\\Locadora-Docker-Net-ReactJS\\LocadoraAPI\\Domain\\Domain.csproj": {
+                "projectPath": "C:\\Users\\AntonioEduardoSilvei\\source\\repos\\Locadora-Docker-Net-ReactJS\\LocadoraAPI\\Domain\\Domain.csproj"
+              },
+              "C:\\Users\\AntonioEduardoSilvei\\source\\repos\\Locadora-Docker-Net-ReactJS\\LocadoraAPI\\Infrastructure\\Infrastructure.csproj": {
+                "projectPath": "C:\\Users\\AntonioEduardoSilvei\\source\\repos\\Locadora-Docker-Net-ReactJS\\LocadoraAPI\\Infrastructure\\Infrastructure.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net5.0": {
+          "targetAlias": "net5.0",
+          "dependencies": {
+            "CPFCNPJ": {
+              "target": "Package",
+              "version": "[2.0.5, )"
+            },
+            "Microsoft.VisualStudio.Azure.Containers.Tools.Targets": {
+              "target": "Package",
+              "version": "[1.14.0, )"
+            },
+            "MySqlConnector": {
+              "target": "Package",
+              "version": "[2.1.8, )"
+            },
+            "Serilog": {
+              "target": "Package",
+              "version": "[2.11.0, )"
+            },
+            "Serilog.AspNetCore": {
+              "target": "Package",
+              "version": "[5.0.0, )"
+            },
+            "Swashbuckle.AspNetCore": {
+              "target": "Package",
+              "version": "[5.6.3, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.202\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}
