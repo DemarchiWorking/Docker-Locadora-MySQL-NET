@@ -1,0 +1,13 @@
+.containerPrincipal {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    border: 0.5px solid blue;
+    padding: 40px 40px 10px 40px;
+    background-color:  white;
+    
+}
+.containerSecundario{
+    text-align: center;
+}

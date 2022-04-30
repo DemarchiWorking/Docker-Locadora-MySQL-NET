@@ -9,7 +9,7 @@ using System;
 
 namespace TargetInvestimento.Controllers
 {
-    [Route("locacao")]
+    [Route("locacoes")]
     [ApiController]
     public class LocacaoController : ControllerBase
     {

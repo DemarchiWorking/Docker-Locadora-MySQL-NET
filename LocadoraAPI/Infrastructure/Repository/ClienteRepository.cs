@@ -144,7 +144,7 @@ namespace Infrastructure.Repository
                                     }
                                     if(clienteUpdateRequest.cpf != null)
                                     {
-                                          sql +=$"CPF = '{clienteUpdateRequest.cpf}', ";
+                                          sql +=$"CPF = '{clienteUpdateRequest.cpf}' ";
                                         if(clienteUpdateRequest.dataNascimento != null)
                                         {
                                             sql += " , ";

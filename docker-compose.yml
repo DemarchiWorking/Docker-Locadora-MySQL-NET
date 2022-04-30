@@ -31,7 +31,7 @@ services:
    
 
   front:
-    build: ./locadora
+    build: ./locadorafront
     volumes:
       - ./volumefront:/var/www/html
     container_name: react-container    
