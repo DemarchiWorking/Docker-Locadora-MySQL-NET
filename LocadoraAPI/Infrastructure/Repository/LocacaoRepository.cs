@@ -103,6 +103,7 @@ namespace Infrastructure.Repository
                     {
                         list.Add(new LocacaoReturn
                         {
+                            idLocacao = Convert.ToInt32(it.ID_LOCACAO),
                             idCliente = Convert.ToInt32(it.ID_CLIENTE),
                             idFilme = Convert.ToInt32(it.ID_FILME),
                             dataDevolucao =it.DATA_DEVOLUCAO,

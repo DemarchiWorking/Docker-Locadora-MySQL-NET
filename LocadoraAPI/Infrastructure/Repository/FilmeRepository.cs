@@ -135,7 +135,7 @@ namespace Infrastructure.Repository
                                  UPDATE FILMES SET ";
                                  if (filmeUpdateRequest.titulo != null)
                                 {
-                                    sql += $"TITULO = '{filmeUpdateRequest.titulo}', ";
+                                    sql += $"TITULO = '{filmeUpdateRequest.titulo}' ";
                                     if(filmeUpdateRequest.classificacaoIndicativa != null || filmeUpdateRequest.lancamento != null)
                                     {
                                         sql += " , ";
@@ -143,7 +143,7 @@ namespace Infrastructure.Repository
                                 }
                                   if (filmeUpdateRequest.classificacaoIndicativa != null)
                                 {
-                                   sql += $"CLASSIFICACAO_INDICATIVA = {filmeUpdateRequest.classificacaoIndicativa}, ";
+                                   sql += $"CLASSIFICACAO_INDICATIVA = {filmeUpdateRequest.classificacaoIndicativa} ";
                                    if(filmeUpdateRequest.classificacaoIndicativa != null || filmeUpdateRequest.lancamento != null)
                                    {
                                         sql += " , ";

@@ -54,11 +54,7 @@ namespace TargetInvestimento.Controllers
                 }
                 if (locacaoRequest.dataLocacao == null)
                 {
-                    return BadRequest(new Response()
-                    {
-                        Title = "Informe a data de locacao!",
-                        Status = 400
-                    });
+                    locacaoRequest.dataLocacao = DateTime.Now;
                 }
 
 
