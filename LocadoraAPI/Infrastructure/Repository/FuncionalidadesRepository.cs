@@ -60,12 +60,12 @@ namespace Infrastructure.Repository
 
                 if (result != null)
                 {
-                    List<Cliente> list = new List<Cliente>();
+                    List<ClienteReturn> list = new List<ClienteReturn>();
 
                     result.ToList<dynamic>().ForEach(it =>
                     {
                         if (it.TEMPO_LOCACAO >= 2) { 
-                        list.Add(new Cliente
+                        list.Add(new ClienteReturn
                         {
                             nome = it.NOME_CLIENTE,
                             cpf = it.CPF_CLIENTE,
@@ -79,7 +79,7 @@ namespace Infrastructure.Repository
                     {
                         if (it.TEMPO_LOCACAO >= 3)
                         {
-                            list.Add(new Cliente
+                            list.Add(new ClienteReturn
                             {
                                 nome = it.NOME_CLIENTE,
                                 cpf = it.CPF_CLIENTE,
@@ -127,11 +127,11 @@ namespace Infrastructure.Repository
 
                 if (result != null)
                 {
-                    List<Filme> list = new List<Filme>();
+                    List<FilmeReturn> list = new List<FilmeReturn>();
 
                     result.ToList<dynamic>().ForEach(it =>
                     {
-                        list.Add(new Filme
+                        list.Add(new FilmeReturn
                         {
                             titulo = it.TITULO,
                             classificacaoIndicativa = Convert.ToInt32(it.CLASSIFICACAO_INDICATIVA),
@@ -185,11 +185,11 @@ namespace Infrastructure.Repository
 
                 if (result != null)
                 {
-                    List<Filme> list = new List<Filme>();
+                    List<FilmeReturn> list = new List<FilmeReturn>();
 
                     result.ToList<dynamic>().ForEach(it =>
                     {
-                        list.Add(new Filme
+                        list.Add(new FilmeReturn
                         {
                             titulo = it.TITULO,
                             classificacaoIndicativa = Convert.ToInt32(it.CLASSIFICACAO_INDICATIVA),
@@ -241,11 +241,11 @@ namespace Infrastructure.Repository
 
                 if (result != null)
                 {
-                    List<Filme> list = new List<Filme>();
+                    List<FilmeReturn> list = new List<FilmeReturn>();
 
                     result.ToList<dynamic>().ForEach(it =>
                     {
-                        list.Add(new Filme
+                        list.Add(new FilmeReturn
                         {
                             titulo = it.TITULO,
                             classificacaoIndicativa = Convert.ToInt32(it.CLASSIFICACAO_INDICATIVA),
@@ -297,11 +297,11 @@ namespace Infrastructure.Repository
 
                 if (result != null)
                 {
-                    List<Cliente> list = new List<Cliente>();
+                    List<ClienteReturn> list = new List<ClienteReturn>();
 
                     result.ToList<dynamic>().ForEach(it =>
                     {
-                        list.Add(new Cliente
+                        list.Add(new ClienteReturn
                         {
                             nome = it.NOME,
                             cpf = it.CPF,

@@ -92,15 +92,16 @@ namespace Infrastructure.Repository
 
                 if (result != null)
                 {
-                    List<Cliente> list = new List<Cliente>();
+                    List<ClienteReturn> list = new List<ClienteReturn>();
 
                     result.ToList<dynamic>().ForEach(it =>
                     {
-                        list.Add(new Cliente
+                        list.Add(new ClienteReturn
                         {
-                            nome = it.NOME,
-                            cpf = it.CPF,
-                            dataNascimento  = it.DATA_NASCIMENTO
+                            idCliente = Convert.ToInt32(it.ID_CLIENTE),
+                            nome = Convert.ToString(it.NOME),
+                            cpf = Convert.ToString(it.CPF),
+                            dataNascimento = Convert.ToDateTime(it.DATA_NASCIMENTO)
                         });
                     });
 
@@ -135,19 +136,27 @@ namespace Infrastructure.Repository
                                  UPDATE CLIENTES SET ";
                                     if(clienteUpdateRequest.nome != null)
                                     {
-                                        sql += $"NOME = '{clienteUpdateRequest.nome}', ";
+                                        sql += $"NOME = '{clienteUpdateRequest.nome}' ";
+                                        if(clienteUpdateRequest.cpf != null || clienteUpdateRequest.dataNascimento != null)
+                                        {
+                                            sql += " , ";
+                                        }
                                     }
-                                    if(clienteUpdateRequest.nome != null)
+                                    if(clienteUpdateRequest.cpf != null)
                                     {
                                           sql +=$"CPF = '{clienteUpdateRequest.cpf}', ";
+                                        if(clienteUpdateRequest.dataNascimento != null)
+                                        {
+                                            sql += " , ";
+                                        }
                                     }
-                                     if(clienteUpdateRequest.nome != null)
+                                     if(clienteUpdateRequest.dataNascimento != null)
                                     {
-                                          sql += $"DATA_NASCIMENTO = '{Convert.ToDateTime(clienteUpdateRequest.dataNascimento).ToString("yyyy/MM/dd HH:mm:ss")}'";
+                                          sql += $"DATA_NASCIMENTO = '{Convert.ToDateTime(clienteUpdateRequest.dataNascimento).ToString("yyyy/MM/dd HH:mm:ss")} '";
                                     }
                                      sql += $"WHERE ID_CLIENTE = { clienteUpdateRequest.idCliente}; ";
 
-                                              //obrigar o usuario a digitar pelo menos um parametro na requisicao demarchialteracao
+                                         
                                              
 
 
@@ -230,11 +239,11 @@ namespace Infrastructure.Repository
 
                 if (result != null && result.AsList().Count != 0)
                 {
-                    List<Cliente> list = new List<Cliente>();
+                    List<ClienteReturn> list = new List<ClienteReturn>();
 
                     result.ToList<dynamic>().ForEach(it =>
                     {
-                        list.Add(new Cliente
+                        list.Add(new ClienteReturn
                         {
                             nome = it.NOME,
                             cpf = it.CPF,

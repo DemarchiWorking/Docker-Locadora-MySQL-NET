@@ -90,12 +90,13 @@ namespace Infrastructure.Repository
 
                 if (result != null)
                 {
-                    List<Filme> list = new List<Filme>();
+                    List<FilmeReturn> list = new List<FilmeReturn>();
 
                     result.ToList<dynamic>().ForEach(it =>
                     {
-                        list.Add(new Filme
+                        list.Add(new FilmeReturn
                         {
+                            idFilme = Convert.ToInt32(it.ID_FILME),
                             titulo = Convert.ToString(it.TITULO),
                             classificacaoIndicativa = Convert.ToInt32(it.CLASSIFICACAO_INDICATIVA),
                             lancamento = Convert.ToBoolean(it.LANCAMENTO)
@@ -135,10 +136,18 @@ namespace Infrastructure.Repository
                                  if (filmeUpdateRequest.titulo != null)
                                 {
                                     sql += $"TITULO = '{filmeUpdateRequest.titulo}', ";
+                                    if(filmeUpdateRequest.classificacaoIndicativa != null || filmeUpdateRequest.lancamento != null)
+                                    {
+                                        sql += " , ";
+                                    }
                                 }
                                   if (filmeUpdateRequest.classificacaoIndicativa != null)
                                 {
                                    sql += $"CLASSIFICACAO_INDICATIVA = {filmeUpdateRequest.classificacaoIndicativa}, ";
+                                   if(filmeUpdateRequest.classificacaoIndicativa != null || filmeUpdateRequest.lancamento != null)
+                                   {
+                                        sql += " , ";
+                                   }
                                 }
                                    if (filmeUpdateRequest.lancamento != null)
                                 {
@@ -228,11 +237,11 @@ namespace Infrastructure.Repository
 
                 if (result != null && result.AsList().Count != 0)
                 {
-                    List<Filme> list = new List<Filme>();
+                    List<FilmeReturn> list = new List<FilmeReturn>();
 
                     result.ToList<dynamic>().ForEach(it =>
                     {
-                        list.Add(new Filme
+                        list.Add(new FilmeReturn
                         {
                             titulo = it.TITULO,
                             classificacaoIndicativa = Convert.ToInt32(it.CLASSIFICACAO_INDICATIVA),

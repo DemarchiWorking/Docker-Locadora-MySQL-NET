@@ -183,7 +183,7 @@ namespace TargetInvestimento.Controllers
               });
         }
 
-        [HttpGet("segundo-top-cliente")]
+        [HttpGet("segundo-melhor-cliente")]
         [ProducesResponseType(typeof(Response), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(Response), StatusCodes.Status400BadRequest)]
         [ProducesResponseType(typeof(Response), StatusCodes.Status500InternalServerError)]

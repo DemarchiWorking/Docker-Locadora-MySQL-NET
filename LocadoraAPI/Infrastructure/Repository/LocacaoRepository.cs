@@ -97,11 +97,11 @@ namespace Infrastructure.Repository
 
                 if (result != null)
                 {
-                    List<Locacao> list = new List<Locacao>();
+                    List<LocacaoReturn> list = new List<LocacaoReturn>();
 
                     result.ToList<dynamic>().ForEach(it =>
                     {
-                        list.Add(new Locacao
+                        list.Add(new LocacaoReturn
                         {
                             idCliente = Convert.ToInt32(it.ID_CLIENTE),
                             idFilme = Convert.ToInt32(it.ID_FILME),
@@ -142,15 +142,27 @@ namespace Infrastructure.Repository
                                  UPDATE LOCACOES SET ";
                                      if (locacaoUpdateRequest.idCliente != null)
                                 {
-                                    sql += $"ID_CLIENTE = {locacaoUpdateRequest.idCliente}, ";
+                                    sql += $"ID_CLIENTE = {locacaoUpdateRequest.idCliente} ";
+                                    if(locacaoUpdateRequest.idFilme != null || locacaoUpdateRequest.dataLocacao != null || locacaoUpdateRequest.dataDevolucao != null)
+                                    {
+                                        sql += " , ";
+                                    }
                                 }
                                      if (locacaoUpdateRequest.idFilme != null)
                                 {
-                                    sql += $"ID_FILME = {locacaoUpdateRequest.idFilme}, ";
+                                    sql += $"ID_FILME = {locacaoUpdateRequest.idFilme} ";
+                                    if(locacaoUpdateRequest.dataLocacao != null || locacaoUpdateRequest.dataDevolucao != null)
+                                    {
+                                        sql += " , ";
+                                    }
                                 }
                                      if (locacaoUpdateRequest.dataLocacao != null)
                                 {
-                                    sql += $"DATA_LOCACAO = '{Convert.ToDateTime(locacaoUpdateRequest.dataLocacao).ToString("yyyy/MM/dd HH:mm:ss")}', ";
+                                    sql += $"DATA_LOCACAO = '{Convert.ToDateTime(locacaoUpdateRequest.dataLocacao).ToString("yyyy/MM/dd HH:mm:ss")}' ";
+                                    if(locacaoUpdateRequest.dataDevolucao != null)
+                                    {
+                                        sql += " , ";
+                                    }
                                 }
                                      if (locacaoUpdateRequest.dataDevolucao != null)
                                 {
@@ -244,12 +256,13 @@ namespace Infrastructure.Repository
 
                 if (result != null && result.AsList().Count != 0)
                 {
-                    List<Locacao> list = new List<Locacao>();
+                    List<LocacaoReturn> list = new List<LocacaoReturn>();
 
                     result.ToList<dynamic>().ForEach(it =>
                     {
-                        list.Add(new Locacao
+                        list.Add(new LocacaoReturn
                         {
+                            idLocacao = Convert.ToInt32(it.ID_LOCACAO),
                             idCliente = Convert.ToInt32(it.ID_CLIENTE),
                             idFilme = Convert.ToInt32(it.ID_FILME),
                             dataDevolucao = it.DATA_DEVOLUCAO,

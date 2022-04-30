@@ -28,7 +28,7 @@ namespace TargetInvestimento.Controllers
         }
 
 
-        [HttpPost("criar")]
+        [HttpPost("")]
         [ProducesResponseType(typeof(Response), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(Response), StatusCodes.Status400BadRequest)]
         [ProducesResponseType(typeof(Response), StatusCodes.Status500InternalServerError)]
@@ -92,7 +92,7 @@ namespace TargetInvestimento.Controllers
               });
         }
 
-        [HttpGet("listar")]
+        [HttpGet("")]
         [ProducesResponseType(typeof(Response), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(Response), StatusCodes.Status400BadRequest)]
         [ProducesResponseType(typeof(Response), StatusCodes.Status500InternalServerError)]
@@ -131,7 +131,7 @@ namespace TargetInvestimento.Controllers
               });
         }
 
-        [HttpPut("alterar")]
+        [HttpPut("")]
         [ProducesResponseType(typeof(Response), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(Response), StatusCodes.Status400BadRequest)]
         [ProducesResponseType(typeof(Response), StatusCodes.Status500InternalServerError)]
@@ -212,7 +212,7 @@ namespace TargetInvestimento.Controllers
         }
 
 
-        [HttpPost("excluir")]
+        [HttpDelete("")]
         [ProducesResponseType(typeof(Response), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(Response), StatusCodes.Status400BadRequest)]
         [ProducesResponseType(typeof(Response), StatusCodes.Status500InternalServerError)]

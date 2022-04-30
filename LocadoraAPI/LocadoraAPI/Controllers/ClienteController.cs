@@ -9,7 +9,7 @@ using System;
 
 namespace TargetInvestimento.Controllers
 {
-    [Route("cliente")]
+    [Route("clientes")]
     [ApiController]
     public class ClienteController : ControllerBase
     {
@@ -28,7 +28,7 @@ namespace TargetInvestimento.Controllers
         }
 
 
-        [HttpPost("criar")]
+        [HttpPost("")]
         [ProducesResponseType(typeof(Response), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(Response), StatusCodes.Status400BadRequest)]
         [ProducesResponseType(typeof(Response), StatusCodes.Status500InternalServerError)]
@@ -92,12 +92,12 @@ namespace TargetInvestimento.Controllers
               });
         }
 
-        [HttpGet("listar")]
+        [HttpGet("")]
         [ProducesResponseType(typeof(Response), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(Response), StatusCodes.Status400BadRequest)]
         [ProducesResponseType(typeof(Response), StatusCodes.Status500InternalServerError)]
         public ActionResult<Response> ListarTodosClientes()
-        {
+            {
             try
             {
                 var response = _clienteService.ListarTodosClientes();
@@ -131,7 +131,7 @@ namespace TargetInvestimento.Controllers
               });
         }
 
-        [HttpPut("alterar")]
+        [HttpPut("")]
         [ProducesResponseType(typeof(Response), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(Response), StatusCodes.Status400BadRequest)]
         [ProducesResponseType(typeof(Response), StatusCodes.Status500InternalServerError)]
@@ -205,7 +205,7 @@ namespace TargetInvestimento.Controllers
         }
 
 
-        [HttpPost("excluir")]
+        [HttpDelete("")]
         [ProducesResponseType(typeof(Response), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(Response), StatusCodes.Status400BadRequest)]
         [ProducesResponseType(typeof(Response), StatusCodes.Status500InternalServerError)]
