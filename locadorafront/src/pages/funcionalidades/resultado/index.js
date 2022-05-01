@@ -246,8 +246,8 @@ for(let i = 0; i < 1; i++) {
                     </tbody>
                 </table>
             </div> 
-            <div style={{color:'red'}}> * Prazo de Entrega: <br/br>
-                            - Lançamentos : 3 Dias 
+            <div style={{color:'red'}}> * Prazo de Entrega: <br/>
+                            - Lançamentos : 3 Dias <br/>
                             - Comuns : 2 Dias
                     </div>
             </div>
