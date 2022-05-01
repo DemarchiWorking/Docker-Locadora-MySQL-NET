@@ -1,37 +1,55 @@
-//import { useState } from 'react';
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
+import Header from '../../../components/Header';
 import { Form, Input, Button, message } from 'antd';
+import * as yup from "yup";
+import api from '../../../services/api';
 import './styles.css';
-import api from 'axios';
-import msgSucesso from '../../../config/global';
-import msgErro from '../../../config/global';
-import { Link } from 'react-router-dom';
-
-export function CadastroCliente() {
-    const { Item } = Form;
+const { Item } = Form;
     
-    //async function cds(){         }
+
+
+// COM ANTD 
+const validacaoCadastro = yup.object().shape({
+    nome: yup.string().required("O título é obrigatório").max(200, "O nome precisa ter menosde 200 caracteres"),
+    cpf: yup.string().required("A descrição é obrigatório").max(12, "O cpf precisa ter menosde 150 caracteres"),
+    dataNascimento: yup.date().required("A data é obrigatória")
+})
+export function CadastrarCliente() {
+
+    let history = useNavigate()
+
+    
     const cadastroSucesso = (dados) =>{
-        alert(msgSucesso + JSON.stringify(dados));
        
         api.post(`${process.env.REACT_APP_API}`+"/clientes", dados)
             .then((response)=> {
-                alert(msgSucesso+ JSON.stringify(response));
+                alert(JSON.stringify(response));
+                history.apply("/")
             })
-            .catch((err)=> {
-                alert(msgErro+err);
+            .catch((response, err)=> {
+                alert("Erro"+err+ JSON.stringify(response));
             });
     }
     const cadastroFailed = (error) =>{
-        console.log(msgErro+error);
+        console.log("Erro :"+error);
     }
-    
-  return (
-    <div>
-        <p><Link to="/">Home </Link></p> 
-       <div className="containerPrincipal">
-            <div className="containerSecundario">
 
-                <Form name='cadastroCliente' initialValues={{
+    return(
+        <div>
+            <Header />
+
+            <main>
+
+                <div className="card-post" >
+
+                    <h1>Cadastrar Cliente</h1>
+                    <div className="line-post" ></div>
+
+                    <div className="card-body-post" >
+
+                        
+                <Form name='cadastrarCliente' initialValues={{
                     recordar:true
                 }}
                 onFinish={cadastroSucesso}
@@ -68,9 +86,13 @@ export function CadastroCliente() {
                         <Button type='primary' htmlType='submit'>Cadastrar </Button>
                     </Item>
                 </Form>
-            </div>
 
-       </div>
-    </div>
-  );
+                    </div>
+
+                </div>
+
+            </main>
+
+        </div>
+    )
 }

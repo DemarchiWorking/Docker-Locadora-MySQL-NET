@@ -10,13 +10,13 @@ function HeaderMain() {
         <header>
             <div className="container">
                 <div className="logo" >
-                    <h1>CRUder</h1>
+                    <Link to="/"><h1>Locadora de Filmes</h1></Link>
                 </div>
 
                 <div className="btn-newPost" >
 
-                    <Link to="/post" >
-                        <button>Add new Post</button>
+                    <Link to="/funcionalidades" >
+                        <button> Funcionalidades </button>
                     </Link>
 
                 </div>
