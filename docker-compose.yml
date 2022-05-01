@@ -32,8 +32,8 @@ services:
 
   front:
     build: ./locadorafront
-    volumes:
-      - ./volumefront:/var/www/html
+#    volumes:
+#      - ./volumefront:/var/www/html
     container_name: react-container    
     restart: always
     ports:
