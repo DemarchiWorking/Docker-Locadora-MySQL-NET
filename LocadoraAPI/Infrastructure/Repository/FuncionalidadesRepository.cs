@@ -34,25 +34,111 @@ namespace Infrastructure.Repository
         {
             try
             {
-
+                /*
                 string sqllancamentos = $@"                                
-                                        SELECT c.ID_CLIENTE AS ID_CLIENTE, c.NOME AS NOME_CLIENTE, c.CPF AS CPF_CLIENTE, c.DATA_NASCIMENTO AS DATA_NASCIMENTO_CLIENTE , f.LANCAMENTO  , l.DATA_LOCACAO , l.DATA_DEVOLUCAO, (SELECT DATEDIFF((SELECT IF(l.DATA_DEVOLUCAO  = '0001-01-01 00:00:00', (SELECT  NOW()), l.DATA_DEVOLUCAO)), l.DATA_LOCACAO)) AS TEMPO_LOCACAO
+                                        SELECT f.ID_FILME AS ID_FILME, f.TITULO AS TITULO, c.ID_CLIENTE AS ID_CLIENTE, c.NOME AS NOME_CLIENTE, c.CPF AS CPF_CLIENTE, c.DATA_NASCIMENTO AS DATA_NASCIMENTO_CLIENTE , f.LANCAMENTO  , l.DATA_LOCACAO AS DATA_LOCACAO, l.DATA_DEVOLUCAO AS DATA_DEVOLUCAO, (SELECT DATEDIFF((SELECT IF(l.DATA_DEVOLUCAO  = '0001-01-01 00:00:00', (SELECT  NOW()), l.DATA_DEVOLUCAO)), l.DATA_LOCACAO)) AS TEMPO_LOCACAO
                                         FROM LOCACOES l 
                                         INNER JOIN FILMES f 
                                         ON l.ID_FILME  = f.ID_FILME
                                         INNER JOIN CLIENTES c  
-                                        ON l.ID_CLIENTE  = c.ID_CLIENTE WHERE  f.LANCAMENTO = 1";
+                                        ON l.ID_CLIENTE  = c.ID_CLIENTE WHERE  f.LANCAMENTO = 1
+                                        ORDER BY l.DATA_LOCACAO ;";
 
 
                 string sqlcomuns = $@"
-                                    SELECT c.ID_CLIENTE AS ID_CLIENTE, c.NOME AS NOME_CLIENTE, c.CPF AS CPF_CLIENTE, c.DATA_NASCIMENTO AS DATA_NASCIMENTO_CLIENTE , f.LANCAMENTO  , l.DATA_LOCACAO , l.DATA_DEVOLUCAO, (SELECT DATEDIFF((SELECT IF(l.DATA_DEVOLUCAO  = '0001-01-01 00:00:00', (SELECT  NOW()), l.DATA_DEVOLUCAO)), l.DATA_LOCACAO)) AS TEMPO_LOCACAO
+                                    SELECT f.ID_FILME AS ID_FILME, f.TITULO AS TITULO, c.ID_CLIENTE AS ID_CLIENTE, c.NOME AS NOME_CLIENTE, c.CPF AS CPF_CLIENTE, c.DATA_NASCIMENTO AS DATA_NASCIMENTO_CLIENTE , f.LANCAMENTO  , l.DATA_LOCACAO AS DATA_LOCACAO, l.DATA_DEVOLUCAO AS DATA_DEVOLUCAO, (SELECT DATEDIFF((SELECT IF(l.DATA_DEVOLUCAO  = '0001-01-01 00:00:00', (SELECT  NOW()), l.DATA_DEVOLUCAO)), l.DATA_LOCACAO)) AS TEMPO_LOCACAO
                                     FROM LOCACOES l 
                                     INNER JOIN FILMES f 
                                     ON l.ID_FILME  = f.ID_FILME
                                     INNER JOIN CLIENTES c  
-                                    ON l.ID_CLIENTE  = c.ID_CLIENTE WHERE  f.LANCAMENTO = 0";
+                                    ON l.ID_CLIENTE  = c.ID_CLIENTE WHERE  f.LANCAMENTO = 0
+                                    ORDER BY l.DATA_LOCACAO ;";
+             
+                string sqllancamentos = $@"                                
+                                        SELECT f.ID_FILME AS ID_FILME, f.TITULO AS TITULO, c.ID_CLIENTE AS ID_CLIENTE, c.NOME AS NOME_CLIENTE, c.CPF AS CPF_CLIENTE, c.DATA_NASCIMENTO AS DATA_NASCIMENTO_CLIENTE , f.LANCAMENTO  , l.DATA_LOCACAO AS DATA_LOCACAO, l.DATA_DEVOLUCAO AS DATA_DEVOLUCAO, (SELECT DATEDIFF((SELECT IF(l.DATA_DEVOLUCAO  = '0001-01-01 00:00:00', (SELECT  NOW()), l.DATA_DEVOLUCAO)), l.DATA_LOCACAO)) AS TEMPO_LOCACAO
+                                        FROM LOCACOES l 
+                                        INNER JOIN FILMES f 
+                                        ON l.ID_FILME  = f.ID_FILME
+                                        INNER JOIN CLIENTES c  
+                                        ON l.ID_CLIENTE  = c.ID_CLIENTE WHERE  f.LANCAMENTO = 1
+                                        AND l.DATA_LOCACAO 
+                                        <= ((
+                                        SELECT IF(l.DATA_DEVOLUCAO  = '0001-01-01 00:00:00',
+                                        (SELECT  NOW()), l.DATA_DEVOLUCAO)))
+                                        ORDER BY l.DATA_LOCACAO ;";
 
 
+                string sqlcomuns = $@"
+                                    SELECT f.ID_FILME AS ID_FILME, f.TITULO AS TITULO, c.ID_CLIENTE AS ID_CLIENTE, c.NOME AS NOME_CLIENTE, c.CPF AS CPF_CLIENTE, c.DATA_NASCIMENTO AS DATA_NASCIMENTO_CLIENTE , f.LANCAMENTO  , l.DATA_LOCACAO AS DATA_LOCACAO, l.DATA_DEVOLUCAO AS DATA_DEVOLUCAO, (SELECT DATEDIFF((SELECT IF(l.DATA_DEVOLUCAO  = '0001-01-01 00:00:00', (SELECT  NOW()), l.DATA_DEVOLUCAO)), l.DATA_LOCACAO)) AS TEMPO_LOCACAO
+                                    FROM LOCACOES l 
+                                    INNER JOIN FILMES f 
+                                    ON l.ID_FILME  = f.ID_FILME
+                                    INNER JOIN CLIENTES c  
+                                    ON l.ID_CLIENTE  = c.ID_CLIENTE WHERE  f.LANCAMENTO = 0
+                                    AND l.DATA_LOCACAO 
+                                    <= ((
+                                    SELECT IF(l.DATA_DEVOLUCAO  = '0001-01-01 00:00:00',
+                                    (SELECT  NOW()), l.DATA_DEVOLUCAO)))
+                                    ORDER BY l.DATA_LOCACAO ;";
+                  
+                
+                // DIAS DE ATRASO APARTIR DA DATA DE HOJE
+                */
+                string sqllancamentos = $@"                                
+                                        SELECT l.ID_LOCACAO AS ID_LOCACAO, f.ID_FILME AS ID_FILME, f.TITULO AS TITULO, c.ID_CLIENTE AS ID_CLIENTE, c.NOME AS NOME_CLIENTE, c.CPF AS CPF_CLIENTE, c.DATA_NASCIMENTO AS DATA_NASCIMENTO_CLIENTE , f.LANCAMENTO  , l.DATA_LOCACAO AS DATA_LOCACAO, l.DATA_DEVOLUCAO AS DATA_DEVOLUCAO, (SELECT DATEDIFF((SELECT  NOW()), l.DATA_LOCACAO)) AS TEMPO_LOCACAO
+                                        FROM LOCACOES l 
+                                        INNER JOIN FILMES f 
+                                        ON l.ID_FILME  = f.ID_FILME
+                                        INNER JOIN CLIENTES c  
+                                        ON l.ID_CLIENTE  = c.ID_CLIENTE WHERE  f.LANCAMENTO = 1
+                                        AND l.DATA_LOCACAO 
+                                        <= ((
+                                        SELECT IF(l.DATA_DEVOLUCAO  = '0001-01-01 00:00:00',
+                                        (SELECT  NOW()), l.DATA_DEVOLUCAO)))
+                                        ORDER BY l.DATA_LOCACAO ";
+
+
+
+                string sqlcomuns = $@"
+                                    SELECT l.ID_LOCACAO AS ID_LOCACAO, f.ID_FILME AS ID_FILME, f.TITULO AS TITULO, c.ID_CLIENTE AS ID_CLIENTE, c.NOME AS NOME_CLIENTE, c.CPF AS CPF_CLIENTE, c.DATA_NASCIMENTO AS DATA_NASCIMENTO_CLIENTE , f.LANCAMENTO  , l.DATA_LOCACAO AS DATA_LOCACAO, l.DATA_DEVOLUCAO AS DATA_DEVOLUCAO, (SELECT DATEDIFF((SELECT  NOW()), l.DATA_LOCACAO)) AS TEMPO_LOCACAO
+                                    FROM LOCACOES l 
+                                    INNER JOIN FILMES f 
+                                    ON l.ID_FILME  = f.ID_FILME
+                                    INNER JOIN CLIENTES c  
+                                    ON l.ID_CLIENTE  = c.ID_CLIENTE WHERE  f.LANCAMENTO = 0
+                                    AND l.DATA_LOCACAO 
+                                    <= ((
+                                    SELECT IF(l.DATA_DEVOLUCAO  = '0001-01-01 00:00:00',
+                                    (SELECT  NOW()), l.DATA_DEVOLUCAO)))
+                                    ORDER BY l.DATA_LOCACAO ";
+                
+                /*
+                string sqllancamentos = $@"                                
+                                        SELECT l.ID_LOCACAO AS ID_LOCACAO, f.ID_FILME AS ID_FILME, f.TITULO AS TITULO, c.ID_CLIENTE AS ID_CLIENTE, c.NOME AS NOME_CLIENTE, c.CPF AS CPF_CLIENTE, c.DATA_NASCIMENTO AS DATA_NASCIMENTO_CLIENTE , f.LANCAMENTO  , l.DATA_LOCACAO AS DATA_LOCACAO, l.DATA_DEVOLUCAO AS DATA_DEVOLUCAO, (SELECT DATEDIFF((SELECT IF(l.DATA_DEVOLUCAO  = '0001-01-01 00:00:00', (SELECT  NOW()), l.DATA_DEVOLUCAO)), l.DATA_LOCACAO)) AS TEMPO_LOCACAO
+                                        FROM LOCACOES l 
+                                        INNER JOIN FILMES f 
+                                        ON l.ID_FILME  = f.ID_FILME
+                                        INNER JOIN CLIENTES c  
+                                        ON l.ID_CLIENTE  = c.ID_CLIENTE WHERE  f.LANCAMENTO = 1
+                                        AND l.DATA_LOCACAO 
+                                        <= (SELECT  NOW())
+                                        ORDER BY l.DATA_LOCACAO";
+
+                                      
+
+
+                string sqlcomuns = $@"
+                                        SELECT l.ID_LOCACAO AS ID_LOCACAO, f.ID_FILME AS ID_FILME, f.TITULO AS TITULO, c.ID_CLIENTE AS ID_CLIENTE, c.NOME AS NOME_CLIENTE, c.CPF AS CPF_CLIENTE, c.DATA_NASCIMENTO AS DATA_NASCIMENTO_CLIENTE , f.LANCAMENTO  , l.DATA_LOCACAO AS DATA_LOCACAO, l.DATA_DEVOLUCAO AS DATA_DEVOLUCAO, (SELECT DATEDIFF((SELECT IF(l.DATA_DEVOLUCAO  = '0001-01-01 00:00:00', (SELECT  NOW()), l.DATA_DEVOLUCAO)), l.DATA_LOCACAO)) AS TEMPO_LOCACAO
+                                        FROM LOCACOES l 
+                                        INNER JOIN FILMES f 
+                                        ON l.ID_FILME  = f.ID_FILME
+                                        INNER JOIN CLIENTES c  
+                                        ON l.ID_CLIENTE  = c.ID_CLIENTE WHERE  f.LANCAMENTO = 0
+                                        AND l.DATA_LOCACAO 
+                                        <= (SELECT  NOW())
+                                        ORDER BY l.DATA_LOCACAO";
+                
+                */
                 var result = _connection.Query<dynamic>(sqllancamentos);
 
                 var result2 = _connection.Query<dynamic>(sqlcomuns);
@@ -60,31 +146,52 @@ namespace Infrastructure.Repository
 
                 if (result != null)
                 {
-                    List<ClienteReturn> list = new List<ClienteReturn>();
+                    List<ClienteAtrasadoReturn> list = new List<ClienteAtrasadoReturn>();
 
                     result.ToList<dynamic>().ForEach(it =>
                     {
-                        if (it.TEMPO_LOCACAO >= 2) { 
-                        list.Add(new ClienteReturn
-                        {
-                            nome = it.NOME_CLIENTE,
-                            cpf = it.CPF_CLIENTE,
-                            dataNascimento  = it.DATA_NASCIMENTO_CLIENTE
-                        });
+                        if(it.LANCAMENTO == 1) { 
+
+                            if (it.TEMPO_LOCACAO >= 2) { 
+                       
+                            list.Add(new ClienteAtrasadoReturn
+                            {
+                                idLocacao = it.ID_LOCACAO,
+                                idFilme = it.ID_FILME,
+                                titulo = it.TITULO,
+                                idCliente = it.ID_CLIENTE,
+                                nome = it.NOME_CLIENTE,
+                                cpf = it.CPF_CLIENTE,
+                                tempoAtraso = it.TEMPO_LOCACAO,
+                                dataNascimento  = it.DATA_NASCIMENTO_CLIENTE,
+                                dataLocacao = it.DATA_LOCACAO,
+                                dataDevolucao = it.DATA_DEVOLUCAO
+                            });
+                         }
                         }
                     });
 
 
-                    result.ToList<dynamic>().ForEach(it =>
+                    result2.ToList<dynamic>().ForEach(it =>
                     {
-                        if (it.TEMPO_LOCACAO >= 3)
-                        {
-                            list.Add(new ClienteReturn
+                        if(it.LANCAMENTO == 0) {
+                            if (it.TEMPO_LOCACAO >= 3)
                             {
-                                nome = it.NOME_CLIENTE,
-                                cpf = it.CPF_CLIENTE,
-                                dataNascimento = it.DATA_NASCIMENTO_CLIENTE
-                            });
+                                list.Add(new ClienteAtrasadoReturn
+                                {
+                                    idLocacao = it.ID_LOCACAO,
+                                    idFilme = it.ID_FILME,
+                                    titulo = it.TITULO,
+                                    idCliente = it.ID_CLIENTE,
+                                    nome = it.NOME_CLIENTE,
+                                    cpf = it.CPF_CLIENTE,
+                                    tempoAtraso = it.TEMPO_LOCACAO,
+                                    dataNascimento = it.DATA_NASCIMENTO_CLIENTE,
+                                    dataLocacao = it.DATA_LOCACAO,
+                                    dataDevolucao = it.DATA_DEVOLUCAO
+
+                                });
+                            }
                         }
                     });
 
@@ -117,7 +224,7 @@ namespace Infrastructure.Repository
             {
 
                 string sql = $@"  
-                              SELECT ID_FILME , TITULO , CLASSIFICACAO_INDICATIVA , LANCAMENTO  FROM FILMES f 
+                              SELECT f.ID_FILME AS ID_FILME, TITULO , CLASSIFICACAO_INDICATIVA , LANCAMENTO  FROM FILMES f 
                               WHERE f.ID_FILME  NOT IN (SELECT ID_FILME  FROM LOCACOES)"; 
 
 
@@ -127,12 +234,13 @@ namespace Infrastructure.Repository
 
                 if (result != null)
                 {
-                    List<FilmeReturn> list = new List<FilmeReturn>();
+                    List<TopAlugados> list = new List<TopAlugados>();
 
                     result.ToList<dynamic>().ForEach(it =>
                     {
-                        list.Add(new FilmeReturn
+                        list.Add(new TopAlugados
                         {
+                            idFilme = it.ID_FILME,
                             titulo = it.TITULO,
                             classificacaoIndicativa = Convert.ToInt32(it.CLASSIFICACAO_INDICATIVA),
                             lancamento = Convert.ToBoolean(it.LANCAMENTO)
@@ -171,12 +279,12 @@ namespace Infrastructure.Repository
                 string sql = $@"  
                               select l.ID_FILME, f.ID_FILME as ID_FILME,f.TITULO AS TITULO
                                     , f.CLASSIFICACAO_INDICATIVA AS CLASSIFICACAO_INDICATIVA, f.LANCAMENTO AS LANCAMENTO
-                                    , count(*) from LOCACOES l
+                                    , count(*) AS VENDAS from LOCACOES l
                                     INNER JOIN FILMES f 
                                     ON l.ID_FILME  = f.ID_FILME
                                     WHERE DATA_LOCACAO  BETWEEN NOW() - INTERVAL 360 DAY AND NOW()
                                     group by l.ID_FILME
-                                    order by count(*) desc
+                                    order by count(*)  desc 
                                     limit 5";
 
 
@@ -185,15 +293,17 @@ namespace Infrastructure.Repository
 
                 if (result != null)
                 {
-                    List<FilmeReturn> list = new List<FilmeReturn>();
+                    List<TopAlugados> list = new List<TopAlugados>();
 
                     result.ToList<dynamic>().ForEach(it =>
                     {
-                        list.Add(new FilmeReturn
+                        list.Add(new TopAlugados
                         {
+                            idFilme = it.ID_FILME,
                             titulo = it.TITULO,
                             classificacaoIndicativa = Convert.ToInt32(it.CLASSIFICACAO_INDICATIVA),
-                            lancamento = Convert.ToBoolean(it.LANCAMENTO)
+                            lancamento = Convert.ToBoolean(it.LANCAMENTO),
+                            vendas = Convert.ToInt32(it.VENDAS)
 
                         });
                     });
@@ -227,29 +337,31 @@ namespace Infrastructure.Repository
             {
 
                 string sql = $@"
-                                 SELECT F.ID_FILME AS ID_FILME, F.TITULO AS TITULO, F.CLASSIFICACAO_INDICATIVA AS CLASSIFICACAO_INDICATIVA, F.LANCAMENTO AS LANCAMENTO 
+                                SELECT F.ID_FILME AS ID_FILME, F.TITULO AS TITULO, F.CLASSIFICACAO_INDICATIVA AS CLASSIFICACAO_INDICATIVA, F.LANCAMENTO AS LANCAMENTO 
                                 , COUNT(L.ID_FILME) AS VENDAS 
                                 FROM FILMES F 
                                 LEFT JOIN LOCACOES L ON F.ID_FILME  = L.ID_FILME  
                                 GROUP BY F.ID_FILME, F.TITULO, F.CLASSIFICACAO_INDICATIVA, F.LANCAMENTO 
                                 ORDER BY VENDAS
                                 LIMIT 3";
-
+                    
 
                 var result = _connection.Query<dynamic>(sql);
 
 
                 if (result != null)
                 {
-                    List<FilmeReturn> list = new List<FilmeReturn>();
+                    List<TopAlugados> listDesc = new List<TopAlugados>();
 
                     result.ToList<dynamic>().ForEach(it =>
                     {
-                        list.Add(new FilmeReturn
+                        listDesc.Add(new TopAlugados
                         {
+                            idFilme = it.ID_FILME,
                             titulo = it.TITULO,
                             classificacaoIndicativa = Convert.ToInt32(it.CLASSIFICACAO_INDICATIVA),
-                            lancamento = Convert.ToBoolean(it.LANCAMENTO)
+                            lancamento = Convert.ToBoolean(it.LANCAMENTO),
+                            vendas = Convert.ToInt32(it.VENDAS)
 
                         });
                     });
@@ -257,7 +369,7 @@ namespace Infrastructure.Repository
 
                     return new Response()
                     {
-                        List = list,
+                        List = listDesc,
                         isSuccess = true
                     };
                 }
@@ -284,7 +396,7 @@ namespace Infrastructure.Repository
 
                 string sql = $@"
                                    select l.ID_CLIENTE as ID_CLIENTE, c.NOME AS NOME, c.CPF AS CPF, c.DATA_NASCIMENTO 
-   									, count(*) from LOCACOES l
+   									, count(*) AS VENDAS from LOCACOES l
                                     INNER JOIN CLIENTES c 
                                     ON l.ID_CLIENTE  = c.ID_CLIENTE                                 
                                     group by l.ID_CLIENTE 
@@ -297,15 +409,17 @@ namespace Infrastructure.Repository
 
                 if (result != null)
                 {
-                    List<ClienteReturn> list = new List<ClienteReturn>();
+                    List<SegundoMelhorCliente> list = new List<SegundoMelhorCliente>();
 
                     result.ToList<dynamic>().ForEach(it =>
                     {
-                        list.Add(new ClienteReturn
+                        list.Add(new SegundoMelhorCliente
                         {
+                            idCliente = it.ID_CLIENTE,
                             nome = it.NOME,
                             cpf = it.CPF,
-                            dataNascimento = it.DATA_NASCIMENTO
+                            dataNascimento = it.DATA_NASCIMENTO,
+                            vendas = it.VENDAS                            
                         });
                     });
 

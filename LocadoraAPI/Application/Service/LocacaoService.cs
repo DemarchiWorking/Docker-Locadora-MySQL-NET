@@ -139,5 +139,20 @@ namespace Application.Service
             return null;
         }
 
+        public Response ListarLocacaoPorId(int idLocacao)
+        {
+            try
+            {
+                var response = _locacaoRepository.ListarLocacaoPorId(idLocacao);
+                return response;
+
+            }
+            catch (Exception ex)
+            {
+                _logger.Error(ex, $"[LocacaoService] Exception in ListarLocacaoPorId!");
+            }
+            return null;
+        }
+
     }
 }

@@ -92,11 +92,11 @@ namespace Infrastructure.Repository
 
                 if (result != null)
                 {
-                    List<ClienteReturn> list = new List<ClienteReturn>();
+                    List<SegundoMelhorCliente> list = new List<SegundoMelhorCliente>();
 
                     result.ToList<dynamic>().ForEach(it =>
                     {
-                        list.Add(new ClienteReturn
+                        list.Add(new SegundoMelhorCliente
                         {
                             idCliente = Convert.ToInt32(it.ID_CLIENTE),
                             nome = Convert.ToString(it.NOME),
@@ -237,14 +237,15 @@ namespace Infrastructure.Repository
                 var result = _connection.Query<dynamic>(sql);
 
 
-                if (result != null && result.AsList().Count != 0)
+                if (result != null && result.ToList().Count != 0)
                 {
-                    List<ClienteReturn> list = new List<ClienteReturn>();
+                    List<SegundoMelhorCliente> list = new List<SegundoMelhorCliente>();
 
                     result.ToList<dynamic>().ForEach(it =>
                     {
-                        list.Add(new ClienteReturn
+                        list.Add(new SegundoMelhorCliente
                         {
+                            idCliente = it.ID_CLIENTE,
                             nome = it.NOME,
                             cpf = it.CPF,
                             dataNascimento = it.DATA_NASCIMENTO

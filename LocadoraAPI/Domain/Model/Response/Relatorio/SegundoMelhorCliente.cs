@@ -1,13 +1,15 @@
 ﻿using System;
-using System.ComponentModel.DataAnnotations;
 
-namespace Domain.Model.Request
+namespace Domain.Model.Dao
 {
-    public class ClienteUpdateRequest
+    public class SegundoMelhorCliente
     {
         public int idCliente { get; set; }
         public string nome { get; set; }
         public string cpf { get; set; }
         public DateTime? dataNascimento { get; set; }
+        public long vendas { get; set; }
+
+
     }
 }

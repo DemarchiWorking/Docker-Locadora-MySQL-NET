@@ -117,14 +117,16 @@ namespace TargetInvestimento.Controllers
         }
 
 
-        [HttpPut("")]
+        [HttpPut("{idFilme}")]
         [ProducesResponseType(typeof(Response), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(Response), StatusCodes.Status400BadRequest)]
         [ProducesResponseType(typeof(Response), StatusCodes.Status500InternalServerError)]
-        public ActionResult<Response> AlterarFilme(FilmeUpdateRequest filmeUpdateRequest)
+        public ActionResult<Response> AlterarFilme([FromRoute] int idFilme,FilmeUpdateRequest filmeUpdateRequest)
         {
             try
             {
+                filmeUpdateRequest.idFilme = idFilme;
+
                 if (filmeUpdateRequest.idFilme == 0)
                 {
                     return BadRequest(new Response()
@@ -194,11 +196,11 @@ namespace TargetInvestimento.Controllers
 
 
 
-        [HttpDelete("")]
+        [HttpDelete("{idFilme}")]
         [ProducesResponseType(typeof(Response), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(Response), StatusCodes.Status400BadRequest)]
         [ProducesResponseType(typeof(Response), StatusCodes.Status500InternalServerError)]
-        public ActionResult<Response> ExcluirFilme(int idFilme)
+        public ActionResult<Response> ExcluirFilme([FromRoute] int idFilme)
         {
             try
             {
@@ -240,6 +242,46 @@ namespace TargetInvestimento.Controllers
                   Status = 500
               });
         }
+
+        [HttpGet("{idFilme}")]
+        [ProducesResponseType(typeof(Response), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(Response), StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(typeof(Response), StatusCodes.Status500InternalServerError)]
+        public ActionResult<Response> ListarFilmePorId([FromRoute] int idFilme)
+        {
+            try
+            {
+                var response = _filmeService.ListarFilmePorId(idFilme);
+
+                if (response.isSuccess == true)
+                {
+                    return Ok(new Response()
+                    {
+                        Title = "Filme encontrado  com sucesso!",
+                        Status = 200,
+                        List = response.List
+                    });
+                }
+                if (response.isSuccess == false)
+                {
+                    return BadRequest(new Response()
+                    {
+                        Title = "Não foi possivel encontrar filme!",
+                        Status = 400
+                    });
+                }
+            }
+            catch (Exception ex)
+            {
+                _logger.Error(ex, $"[FilmeController] Exception in ListarFilmePorId!");
+            }
+            return StatusCode(StatusCodes.Status500InternalServerError,
+              new Response()
+              {
+                  Status = 500
+              });
+        }
+
 
     }
 }

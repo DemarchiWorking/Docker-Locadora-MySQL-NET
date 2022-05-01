@@ -9,6 +9,7 @@ namespace Application.Service.Interfaces
         Response ListarTodasLocacoes();
         Response AlterarLocacoes(LocacaoUpdateRequest locacaoUpdateRequest);
         Response ExcluirLocacao(int idLocadora);
+        Response ListarLocacaoPorId(int idLocadora);
 
 
     }

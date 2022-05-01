@@ -90,11 +90,11 @@ namespace Infrastructure.Repository
 
                 if (result != null)
                 {
-                    List<FilmeReturn> list = new List<FilmeReturn>();
+                    List<TopAlugados> list = new List<TopAlugados>();
 
                     result.ToList<dynamic>().ForEach(it =>
                     {
-                        list.Add(new FilmeReturn
+                        list.Add(new TopAlugados
                         {
                             idFilme = Convert.ToInt32(it.ID_FILME),
                             titulo = Convert.ToString(it.TITULO),
@@ -237,11 +237,11 @@ namespace Infrastructure.Repository
 
                 if (result != null && result.AsList().Count != 0)
                 {
-                    List<FilmeReturn> list = new List<FilmeReturn>();
+                    List<TopAlugados> list = new List<TopAlugados>();
 
                     result.ToList<dynamic>().ForEach(it =>
                     {
-                        list.Add(new FilmeReturn
+                        list.Add(new TopAlugados
                         {
                             titulo = it.TITULO,
                             classificacaoIndicativa = Convert.ToInt32(it.CLASSIFICACAO_INDICATIVA),

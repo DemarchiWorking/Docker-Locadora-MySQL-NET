@@ -92,5 +92,20 @@ namespace Application.Service
             return null;
         }
 
+        public Response ListarFilmePorId(int idFilme)
+        {
+            try
+            {
+                var response = _filmeRepository.ListarFilmePorId(idFilme);
+                return response;
+
+            }
+            catch (Exception ex)
+            {
+                _logger.Error(ex, $"[FilmeService] Exception in ListarTodosFilmes!");
+            }
+            return null;
+        }
+
     }
 }

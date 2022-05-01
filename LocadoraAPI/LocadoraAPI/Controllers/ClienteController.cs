@@ -41,7 +41,7 @@ namespace TargetInvestimento.Controllers
                     return BadRequest(new Response()
                     {
                         Title = "Informe o nome do cliente!",
-                        Status = 400
+                        Status = 400  
                     });
                 }
                 if (string.IsNullOrEmpty(clienteRequest.cpf))
@@ -61,6 +61,11 @@ namespace TargetInvestimento.Controllers
                         Status = 400
                     });
                 }
+                if (clienteRequest.dataNascimento == null)
+                {
+                    clienteRequest.dataNascimento = DateTime.Now;
+                }
+
 
                 var response = _clienteService.CadastrarCliente(clienteRequest);
 
@@ -97,7 +102,7 @@ namespace TargetInvestimento.Controllers
         [ProducesResponseType(typeof(Response), StatusCodes.Status400BadRequest)]
         [ProducesResponseType(typeof(Response), StatusCodes.Status500InternalServerError)]
         public ActionResult<Response> ListarTodosClientes()
-            {
+        {
             try
             {
                 var response = _clienteService.ListarTodosClientes();
@@ -131,14 +136,15 @@ namespace TargetInvestimento.Controllers
               });
         }
 
-        [HttpPut("")]
+        [HttpPut("{idCliente}")]
         [ProducesResponseType(typeof(Response), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(Response), StatusCodes.Status400BadRequest)]
         [ProducesResponseType(typeof(Response), StatusCodes.Status500InternalServerError)]
-        public ActionResult<Response> AlterarCliente(ClienteUpdateRequest clienteUpdateRequest)
+        public ActionResult<Response> AlterarCliente([FromRoute]int idCliente, ClienteUpdateRequest clienteUpdateRequest)
         {
             try
             {
+                clienteUpdateRequest.idCliente = idCliente;
                 if (clienteUpdateRequest.idCliente == 0)
                 {
                     return BadRequest(new Response()
@@ -205,11 +211,11 @@ namespace TargetInvestimento.Controllers
         }
 
 
-        [HttpDelete("")]
+        [HttpDelete("{idCliente}")]
         [ProducesResponseType(typeof(Response), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(Response), StatusCodes.Status400BadRequest)]
         [ProducesResponseType(typeof(Response), StatusCodes.Status500InternalServerError)]
-        public ActionResult<Response> ExcluirCliente(int idCliente)
+        public ActionResult<Response> ExcluirCliente([FromRoute]int idCliente)
         {
             try
             {
@@ -244,6 +250,45 @@ namespace TargetInvestimento.Controllers
             catch (Exception ex)
             {
                 _logger.Error(ex, $"[ClienteController] Exception in ExcluirCliente!");
+            }
+            return StatusCode(StatusCodes.Status500InternalServerError,
+              new Response()
+              {
+                  Status = 500
+              });
+        }
+
+        [HttpGet("{idCliente}")]
+        [ProducesResponseType(typeof(Response), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(Response), StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(typeof(Response), StatusCodes.Status500InternalServerError)]
+        public ActionResult<Response> ListarClientePorId([FromRoute] int idCliente)
+        {
+            try
+            {
+                var response = _clienteService.ListarClientePorId(idCliente);
+
+                if (response.isSuccess == true)
+                {
+                    return Ok(new Response()
+                    {
+                        Title = "Cliente encontrado  com sucesso!",
+                        Status = 200,
+                        List = response.List
+                    });
+                }
+                if (response.isSuccess == false)
+                {
+                    return BadRequest(new Response()
+                    {
+                        Title = "Não foi possivel encontrar cliente!",
+                        Status = 400
+                    });
+                }
+            }
+            catch (Exception ex)
+            {
+                _logger.Error(ex, $"[ClienteController] Exception in ListarClientePorId!");
             }
             return StatusCode(StatusCodes.Status500InternalServerError,
               new Response()

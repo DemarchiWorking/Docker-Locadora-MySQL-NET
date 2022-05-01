@@ -65,6 +65,7 @@ namespace Application.Service
                     };
                 }
 
+                
                 var response = _clienteRepository.AlterarCliente(clienteUpdateRequest);
                 return response;
 
@@ -87,6 +88,20 @@ namespace Application.Service
             catch (Exception ex)
             {
                 _logger.Error(ex, $"[ClienteService] Exception in ExcluirCliente!");
+            }
+            return null;
+        }
+        public Response ListarClientePorId(int idCliente)
+        {
+            try
+            {
+                var response = _clienteRepository.ListarClientePorId(idCliente);
+                return response;
+
+            }
+            catch (Exception ex)
+            {
+                _logger.Error(ex, $"[ClienteService] Exception in ListarTodosClientes!");
             }
             return null;
         }

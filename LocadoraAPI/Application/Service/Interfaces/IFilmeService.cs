@@ -9,6 +9,7 @@ namespace Application.Service.Interfaces
         Response ListarTodosFilmes();
         Response AlterarFilme(FilmeUpdateRequest filmeUpdateRequest);
         Response ExcluirFilme(int idFilme);
+        Response ListarFilmePorId(int idFilme);
 
 
     }

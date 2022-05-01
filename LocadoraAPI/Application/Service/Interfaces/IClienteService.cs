@@ -9,7 +9,7 @@ namespace Application.Service.Interfaces
         Response ListarTodosClientes();
         Response AlterarCliente(ClienteUpdateRequest clienteUpdateRequest);
         Response ExcluirCliente(int idCliente);
-
+        Response ListarClientePorId(int idCliente);
 
     }
 }

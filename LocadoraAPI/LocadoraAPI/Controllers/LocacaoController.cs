@@ -57,6 +57,15 @@ namespace TargetInvestimento.Controllers
                     locacaoRequest.dataLocacao = DateTime.Now;
                 }
 
+                if (locacaoRequest.dataLocacao > locacaoRequest.dataDevolucao)
+                {
+                    return new Response()
+                    {
+                        Title = "Data da devolução não pode ser maior que data da locação",
+                        Status = 400
+                    };
+                }
+
 
                 var response = _locacaoService.CadastrarLocacao(locacaoRequest);
 
@@ -127,14 +136,15 @@ namespace TargetInvestimento.Controllers
               });
         }
 
-        [HttpPut("")]
+        [HttpPut("{idLocacao}")]
         [ProducesResponseType(typeof(Response), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(Response), StatusCodes.Status400BadRequest)]
         [ProducesResponseType(typeof(Response), StatusCodes.Status500InternalServerError)]
-        public ActionResult<Response> AlterarLocacoes(LocacaoUpdateRequest locacaoUpdateRequest)
+        public ActionResult<Response> AlterarLocacoes([FromRoute] int idLocacao, LocacaoUpdateRequest locacaoUpdateRequest)
         {
             try
             {
+                locacaoUpdateRequest.idLocacao = idLocacao;
                 if (locacaoUpdateRequest.idLocacao == 0)
                 {
                     return BadRequest(new Response()
@@ -208,11 +218,11 @@ namespace TargetInvestimento.Controllers
         }
 
 
-        [HttpDelete("")]
+        [HttpDelete("{idLocacao}")]
         [ProducesResponseType(typeof(Response), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(Response), StatusCodes.Status400BadRequest)]
         [ProducesResponseType(typeof(Response), StatusCodes.Status500InternalServerError)]
-        public ActionResult<Response> ExcluirLocacao(int idLocacao)
+        public ActionResult<Response> ExcluirLocacao([FromRoute] int idLocacao)
         {
             try
             {
@@ -255,6 +265,46 @@ namespace TargetInvestimento.Controllers
                   Status = 500
               });
         }
+
+        [HttpGet("{idLocacao}")]
+        [ProducesResponseType(typeof(Response), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(Response), StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(typeof(Response), StatusCodes.Status500InternalServerError)]
+        public ActionResult<Response> ListarLocacaoPorId([FromRoute] int idLocacao)
+        {
+            try
+            {
+                var response = _locacaoService.ListarLocacaoPorId(idLocacao);
+
+                if (response.isSuccess == true)
+                {
+                    return Ok(new Response()
+                    {
+                        Title = "Filme encontrado  com sucesso!",
+                        Status = 200,
+                        List = response.List
+                    });
+                }
+                if (response.isSuccess == false)
+                {
+                    return BadRequest(new Response()
+                    {
+                        Title = "Não foi possivel encontrar filme!",
+                        Status = 400
+                    });
+                }
+            }
+            catch (Exception ex)
+            {
+                _logger.Error(ex, $"[LocacaoController] Exception in ListarLocacaoPorId!");
+            }
+            return StatusCode(StatusCodes.Status500InternalServerError,
+              new Response()
+              {
+                  Status = 500
+              });
+        }
+
 
     }
 }
